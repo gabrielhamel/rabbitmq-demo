@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  rabbitmq:
+    container_name: demo-rabbitmq
+    hostname: demo-rabbitmq
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+      RABBITMQ_DEFAULT_VHOST: demo-vhost
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+
+volumes:
+  rabbitmq:
